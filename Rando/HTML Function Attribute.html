@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Functions and Elements</title>
+    <style>
+        body {
+            font-size: 10pt;
+        }
+        .clickable {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied to clipboard: ' + text);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>HTML5 Functions</h1>
+    <p>
+        <span class="clickable" onclick="copyToClipboard('<audio></audio>')">audio</span>,
+        <span class="clickable" onclick="copyToClipboard('<canvas></canvas>')">canvas</span>,
+        <span class="clickable" onclick="copyToClipboard('<embed>')">embed</span>,
+        <span class="clickable" onclick="copyToClipboard('<iframe></iframe>')">iframe</span>,
+        <span class="clickable" onclick="copyToClipboard('<img>')">img</span>,
+        <span class="clickable" onclick="copyToClipboard('<object></object>')">object</span>,
+        <span class="clickable" onclick="copyToClipboard('<source>')">source</span>,
+        <span class="clickable" onclick="copyToClipboard('<track>')">track</span>,
+        <span class="clickable" onclick="copyToClipboard('<video></video>')">video</span>,
+        <span class="clickable" onclick="copyToClipboard('<a></a>')">a</span>,
+        <span class="clickable" onclick="copyToClipboard('<abbr></abbr>')">abbr</span>,
+        <span class="clickable" onclick="copyToClipboard('<address></address>')">address</span>,
+        <span class="clickable" onclick="copyToClipboard('<area>')">area</span>,
+        <span class="clickable" onclick="copyToClipboard('<article></article>')">article</span>,
+        <span class="clickable" onclick="copyToClipboard('<aside></aside>')">aside</span>,
+        <span class="clickable" onclick="copyToClipboard('<b></b>')">b</span>,
+        <span class="clickable" onclick="copyToClipboard('<base>')">base</span>,
+        <span class="clickable" onclick="copyToClipboard('<bdi></bdi>')">bdi</span>,
+        <span class="clickable" onclick="copyToClipboard('<bdo></bdo>')">bdo</span>,
+        <span class="clickable" onclick="copyToClipboard('<blockquote></blockquote>')">blockquote</span>,
+        <span class="clickable" onclick="copyToClipboard('<body></body>')">body</span>,
+        <span class="clickable" onclick="copyToClipboard('<br>')">br</span>,
+        <span class="clickable" onclick="copyToClipboard('<button></button>')">button</span>,
+        <span class="clickable" onclick="copyToClipboard('<caption></caption>')">caption</span>,
+        <span class="clickable" onclick="copyToClipboard('<cite></cite>')">cite</span>,
+        <span class="clickable" onclick="copyToClipboard('<code></code>')">code</span>,
+        <span class="clickable" onclick="copyToClipboard('<col>')">col</span>,
+        <span class="clickable" onclick="copyToClipboard('<colgroup></colgroup>')">colgroup</span>,
+        <span class="clickable" onclick="copyToClipboard('<data></data>')">data</span>,
+        <span class="clickable" onclick="copyToClipboard('<datalist></datalist>')">datalist</span>,
+        <span class="clickable" onclick="copyToClipboard('<dd></dd>')">dd</span>,
+        <span class="clickable" onclick="copyToClipboard('<del></del>')">del</span>,
+        <span class="clickable" onclick="copyToClipboard('<dfn></dfn>')">dfn</span>,
+        <span class="clickable" onclick="copyToClipboard('<div></div>')">div</span>,
+        <span class="clickable" onclick="copyToClipboard('<dl></dl>')">dl</span>,
+        <span class="clickable" onclick="copyToClipboard('<dt></dt>')">dt</span>,
+        <span class="clickable" onclick="copyToClipboard('<em></em>')">em</span>,
+        <span class="clickable" onclick="copyToClipboard('<fieldset></fieldset>')">fieldset</span>,
+        <span class="clickable" onclick="copyToClipboard('<figcaption></figcaption>')">figcaption</span>,
+        <span class="clickable" onclick="copyToClipboard('<figure></figure>')">figure</span>,
+        <span class="clickable" onclick="copyToClipboard('<footer></footer>')">footer</span>,
+        <span class="clickable" onclick="copyToClipboard('<form></form>')">form</span>,
+        <span class="clickable" onclick="copyToClipboard('<h1></h1>')">h1</span>,
+        <span class="clickable" onclick="copyToClipboard('<h2></h2>')">h2</span>,
+        <span class="clickable" onclick="copyToClipboard('<h3></h3>')">h3</span>,
+        <span class="clickable" onclick="copyToClipboard('<h4></h4>')">h4</span>,
+        <span class="clickable" onclick="copyToClipboard('<h5></h5>')">h5</span>,
+        <span class="clickable" onclick="copyToClipboard('<h6></h6>')">h6</span>,
+        <span class="clickable" onclick="copyToClipboard('<head></head>')">head</span>,
+        <span class="clickable" onclick="copyToClipboard('<header></header>')">header</span>,
+        <span class="clickable" onclick="copyToClipboard('<hr>')">hr</span>,
+        <span class="clickable" onclick="copyToClipboard('<html></html>')">html</span>,
+        <span class="clickable" onclick="copyToClipboard('<i></i>')">i</span>,
+        <span class="clickable" onclick="copyToClipboard('<iframe></iframe>')">iframe</span>,
+        <span class="clickable" onclick="copyToClipboard('<img>')">img</span>,
+        <span class="clickable" onclick="copyToClipboard('<input>')">input</span>,
+        <span class="clickable" onclick="copyToClipboard('<ins></ins>')">ins</span>,
+        <span class="clickable" onclick="copyToClipboard('<kbd></kbd>')">kbd</span>,
+        <span class="clickable" onclick="copyToClipboard('<label></label>')">label</span>,
+        <span class="clickable" onclick="copyToClipboard('<legend></legend>')">legend</span>,
+        <span class="clickable" onclick="copyToClipboard('<li></li>')">li</span>,
+        <span class="clickable" onclick="copyToClipboard('<link>')">link</span>,
+        <span class="clickable" onclick="copyToClipboard('<main></main>')">main</span>,
+        <span class="clickable" onclick="copyToClipboard('<map></map>')">map</span>,
+        <span class="clickable" onclick="copyToClipboard('<mark></mark>')">mark</span>,
+        <span class="clickable" onclick="copyToClipboard('<meta>')">meta</span>,
+        <span class="clickable" onclick="copyToClipboard('<meter></meter>')">meter</span>,
+        <span class="clickable" onclick="copyToClipboard('<nav></nav>')">nav</span>,
+        <span class="clickable" onclick="copyToClipboard('<noscript></noscript>')">noscript</span>,
+        <span class="clickable" onclick="copyToClipboard('<object></object>')">object</span>,
+        <span class="clickable" onclick="copyToClipboard('<ol></ol>')">ol</span>,
+        <span class="clickable" onclick="copyToClipboard('<optgroup></optgroup>')">optgroup</span>,
+        <span class="clickable" onclick="copyToClipboard('<option></option>')">option</span>,
+        <span class="clickable" onclick="copyToClipboard('<output></output>')">output</span>,
+        <span class="clickable" onclick="copyToClipboard('<p></p>')">p</span>,
+        <span class="clickable" onclick="copyToClipboard('<param>')">param</span>,
+        <span class="clickable" onclick="copyToClipboard('<picture></picture>')">picture</span>,
+        <span class="clickable" onclick="copyToClipboard('<pre></pre>')">pre</span>,
+        <span class="clickable" onclick="copyToClipboard('<progress></progress>')">progress</span>,
+        <span class="clickable" onclick="copyToClipboard('<q></q>')">q</span>,
+        <span class="clickable" onclick="copyToClipboard('<rp></rp>')">rp</span>,
+        <span class="clickable" onclick="copyToClipboard('<rt></rt>')">rt</span>,
+        <span class="clickable" onclick="copyToClipboard('<ruby></ruby>')">ruby</span>,
+        <span class="clickable" onclick="copyToClipboard('<s></s>')">s</span>,
+        <span class="clickable" onclick="copyToClipboard('<samp></samp>')">samp</span>,
+        <span class="clickable" onclick="copyToClipboard('<script></script>')">script</span>,
+        <span class="clickable" onclick="copyToClipboard('<section></section>')">section</span>,
+        <span class="clickable" onclick="copyToClipboard('<select></select>')">select</span>,
+        <span class="clickable" onclick="copyToClipboard('<small></small>')">small</span>,
+        <span class="clickable" onclick="copyToClipboard('<source>')">source</span>,
+        <span class="clickable" onclick="copyToClipboard('<span></span>')">span</span>,
+        <span class="clickable" onclick="copyToClipboard('<strong></strong>')">strong</span>,
+        <span class="clickable" onclick="copyToClipboard('<style></style>')">style</span>,
+        <span class="clickable" onclick="copyToClipboard('<sub></sub>')">sub</span>,
+        <span class="clickable" onclick="copyToClipboard('<summary></summary>')">summary</span>,
+        <span class="clickable" onclick="copyToClipboard('<sup></sup>')">sup</span>,
+        <span class="clickable" onclick="copyToClipboard('<table></table>')">table</span>,
+        <span class="clickable" onclick="copyToClipboard('<tbody></tbody>')">tbody</span>,
+        <span class="clickable" onclick="copyToClipboard('<td></td>')">td</span>,
+        <span class="clickable" onclick="copyToClipboard('<template></template>')">template</span>,
+        <span class="clickable" onclick="copyToClipboard('<textarea></textarea>')">textarea</span>,
+        <span class="clickable" onclick="copyToClipboard('<tfoot></tfoot>')">tfoot</span>,
+        <span class="clickable" onclick="copyToClipboard('<th></th>')">th</span>,
+        <span class="clickable" onclick="copyToClipboard('<thead></thead>')">thead</span>,
+        <span class="clickable" onclick="copyToClipboard('<time></time>')">time</span>,
+        <span class="clickable" onclick="copyToClipboard('<title></title>')">title</span>,
+        <span class="clickable" onclick="copyToClipboard('<tr></tr>')">tr</span>,
+        <span class="clickable" onclick="copyToClipboard('<track>')">track</span>,
+        <span class="clickable" onclick="copyToClipboard('<u></u>')">u</span>,
+        <span class="clickable" onclick="copyToClipboard('<ul></ul>')">ul</span>,
+        <span class="clickable" onclick="copyToClipboard('<var></var>')">var</span>,
+        <span class="clickable" onclick="copyToClipboard('<video></video>')">video</span>,
+        <span class="clickable" onclick="copyToClipboard('<wbr>')">wbr</span>
+    </p>
+</body>
+</html>

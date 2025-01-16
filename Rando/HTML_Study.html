@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .choices {
+            list-style-type: none;
+            padding: 0;
+        }
+        .choices li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML5 Quiz</h1>
+    <div id="quiz-container"></div>
+    <button onclick="nextQuestion()">Next Question</button>
+
+    <script>
+        const questions = [
+            {
+                question: "What does HTML stand for?",
+                choices: ["Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language"],
+                correct: 0
+            },
+            {
+                question: "Who is making the Web standards?",
+                choices: ["Mozilla", "Microsoft", "The World Wide Web Consortium"],
+                correct: 2
+            },
+            {
+                question: "Choose the correct HTML element for the largest heading:",
+                choices: ["<heading>", "<h6>", "<h1>"],
+                correct: 2
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let correctAnswers = JSON.parse(localStorage.getItem('correctAnswers')) || [];
+        let incorrectAnswers = JSON.parse(localStorage.getItem('incorrectAnswers')) || [];
+
+        function loadQuestion() {
+            const question = questions[currentQuestionIndex];
+            const quizContainer = document.getElementById('quiz-container');
+            quizContainer.innerHTML = `
+                <div class="question">${question.question}</div>
+                <ul class="choices">
+                    ${question.choices.map((choice, index) => `<li><button onclick="checkAnswer(${index})">${choice}</button></li>`).join('')}
+                </ul>
+            `;
+        }
+
+        function checkAnswer(selectedIndex) {
+            const question = questions[currentQuestionIndex];
+            if (selectedIndex === question.correct) {
+                alert('Correct!');
+                correctAnswers.push(currentQuestionIndex);
+            } else {
+                alert('Incorrect!');
+                incorrectAnswers.push(currentQuestionIndex);
+            }
+            localStorage.setItem('correctAnswers', JSON.stringify(correctAnswers));
+            localStorage.setItem('incorrectAnswers', JSON.stringify(incorrectAnswers));
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
+            loadQuestion();
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>

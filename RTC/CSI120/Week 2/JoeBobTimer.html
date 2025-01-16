@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoeBob Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; color: tomato;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #030000;
+        }
+        input {
+            margin: 5px;
+        }
+        button {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JoeBob Timer</h1>
+    <label for="joebob-time">Segment Break at:</label>
+    <input type="text" id="joebob-time" placeholder="hh:mm:ss">
+    <label for="feature-time">Current Feature Time:</label>
+    <input type="text" id="feature-time" placeholder="hh:mm:ss">
+    <button onclick="startTimer()">Start Timer</button>
+    <h2 id="timer-display">00:00:00</h2>
+
+    <script>
+        let timerInterval;
+
+        function startTimer() {
+            clearInterval(timerInterval);
+
+            const joebobTime = document.getElementById('joebob-time').value;
+            const featureTime = document.getElementById('feature-time').value;
+
+            const joebobSeconds = convertToSeconds(joebobTime);
+            const featureSeconds = convertToSeconds(featureTime);
+
+            let remainingTime = joebobSeconds - featureSeconds;
+
+            if (remainingTime < 0) {
+                alert("Feature timestamp is ahead of JoeBob timestamp.");
+                return;
+            }
+
+            timerInterval = setInterval(() => {
+                if (remainingTime <= 0) {
+                    clearInterval(timerInterval);
+                    document.getElementById('timer-display').textContent = "00:00:00";
+                    alert("Pause Feature now!");
+                } else {
+                    document.getElementById('timer-display').textContent = formatTime(remainingTime);
+                    remainingTime--;
+                }
+            }, 1000);
+        }
+
+        function convertToSeconds(time) {
+            const parts = time.split(':');
+            return (+parts[0] * 3600) + (+parts[1] * 60) + (+parts[2]);
+        }
+
+        function formatTime(seconds) {
+            const hrs = Math.floor(seconds / 3600).toString().padStart(2, '0');
+            const mins = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
+            const secs = (seconds % 60).toString().padStart(2, '0');
+            return `${hrs}:${mins}:${secs}`;
+        }
+    </script>
+</body>
+</html>

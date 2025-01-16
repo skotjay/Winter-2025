@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerShell Verbs</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: monospace;
+        }
+        .verb {
+            cursor: pointer;
+            color: cyan;
+        }
+    </style>
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert('Copied to clipboard: ' + text);
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    </script>
+</head>
+<body>
+    <p>
+        <span class="verb" onclick="copyToClipboard('Define')">Define (not PS)</span>,
+        <span class="verb" onclick="copyToClipboard('Print')">Print</span>, 
+        <span class="verb" onclick="copyToClipboard('Read')">Read</span>,  
+        <span class="verb" onclick="copyToClipboard('Add')">Add</span>, 
+        <span class="verb" onclick="copyToClipboard('Clear')">Clear</span>, 
+        <span class="verb" onclick="copyToClipboard('Close')">Close</span>, 
+        <span class="verb" onclick="copyToClipboard('Copy')">Copy</span>, 
+        <span class="verb" onclick="copyToClipboard('Enter')">Enter</span>, 
+        <span class="verb" onclick="copyToClipboard('Exit')">Exit</span>, 
+        <span class="verb" onclick="copyToClipboard('Find')">Find</span>, 
+        <span class="verb" onclick="copyToClipboard('Format')">Format</span>, 
+        <span class="verb" onclick="copyToClipboard('Get')">Get</span>, 
+        <span class="verb" onclick="copyToClipboard('Hide')">Hide</span>, 
+        <span class="verb" onclick="copyToClipboard('Join')">Join</span>, 
+        <span class="verb" onclick="copyToClipboard('Lock')">Lock</span>, 
+        <span class="verb" onclick="copyToClipboard('Move')">Move</span>, 
+        <span class="verb" onclick="copyToClipboard('New')">New</span>, 
+        <span class="verb" onclick="copyToClipboard('Open')">Open</span>, 
+        <span class="verb" onclick="copyToClipboard('Optimize')">Optimize</span>, 
+        <span class="verb" onclick="copyToClipboard('Pop')">Pop</span>, 
+        <span class="verb" onclick="copyToClipboard('Push')">Push</span>, 
+        <span class="verb" onclick="copyToClipboard('Remove')">Remove</span>, 
+        <span class="verb" onclick="copyToClipboard('Rename')">Rename</span>, 
+        <span class="verb" onclick="copyToClipboard('Reset')">Reset</span>, 
+        <span class="verb" onclick="copyToClipboard('Resize')">Resize</span>, 
+        <span class="verb" onclick="copyToClipboard('Search')">Search</span>, 
+        <span class="verb" onclick="copyToClipboard('Select')">Select</span>, 
+        <span class="verb" onclick="copyToClipboard('Set')">Set</span>, 
+        <span class="verb" onclick="copyToClipboard('Show')">Show</span>, 
+        <span class="verb" onclick="copyToClipboard('Skip')">Skip</span>, 
+        <span class="verb" onclick="copyToClipboard('Split')">Split</span>, 
+        <span class="verb" onclick="copyToClipboard('Step')">Step</span>, 
+        <span class="verb" onclick="copyToClipboard('Switch')">Switch</span>, 
+        <span class="verb" onclick="copyToClipboard('Undo')">Undo</span>, 
+        <span class="verb" onclick="copyToClipboard('Unlock')">Unlock</span>, 
+        <span class="verb" onclick="copyToClipboard('Unpublish')">Unpublish</span>, 
+        <span class="verb" onclick="copyToClipboard('Update')">Update</span>, 
+        <span class="verb" onclick="copyToClipboard('Use')">Use</span>, 
+        <span class="verb" onclick="copyToClipboard('Watch')">Watch</span>, 
+        <span class="verb" onclick="copyToClipboard('Write')">Write</span>, 
+        <span class="verb" onclick="copyToClipboard('Backup')">Backup</span>, 
+        <span class="verb" onclick="copyToClipboard('Checkpoint')">Checkpoint</span>, 
+        <span class="verb" onclick="copyToClipboard('Compare')">Compare</span>, 
+        <span class="verb" onclick="copyToClipboard('Compress')">Compress</span>, 
+        <span class="verb" onclick="copyToClipboard('Convert')">Convert</span>, 
+        <span class="verb" onclick="copyToClipboard('ConvertFrom')">ConvertFrom</span>, 
+        <span class="verb" onclick="copyToClipboard('ConvertTo')">ConvertTo</span>, 
+        <span class="verb" onclick="copyToClipboard('Dismount')">Dismount</span>, 
+        <span class="verb" onclick="copyToClipboard('Edit')">Edit</span>, 
+        <span class="verb" onclick="copyToClipboard('Expand')">Expand</span>, 
+        <span class="verb" onclick="copyToClipboard('Export')">Export</span>, 
+        <span class="verb" onclick="copyToClipboard('Group')">Group</span>, 
+        <span class="verb" onclick="copyToClipboard('Import')">Import</span>, 
+        <span class="verb" onclick="copyToClipboard('Initialize')">Initialize</span>, 
+        <span class="verb" onclick="copyToClipboard('Limit')">Limit</span>, 
+        <span class="verb" onclick="copyToClipboard('Merge')">Merge</span>, 
+        <span class="verb" onclick="copyToClipboard('Mount')">Mount</span>, 
+        <span class="verb" onclick="copyToClipboard('Out')">Out</span>, 
+        <span class="verb" onclick="copyToClipboard('Publish')">Publish</span>, 
+        <span class="verb" onclick="copyToClipboard('Restore')">Restore</span>, 
+        <span class="verb" onclick="copyToClipboard('Save')">Save</span>, 
+        <span class="verb" onclick="copyToClipboard('Sync')">Sync</span>, 
+        <span class="verb" onclick="copyToClipboard('Uninstall')">Uninstall</span>, 
+        <span class="verb" onclick="copyToClipboard('Unregister')">Unregister</span>, 
+        <span class="verb" onclick="copyToClipboard('Wait')">Wait</span>, 
+        <span class="verb" onclick="copyToClipboard('Debug')">Debug</span>, 
+        <span class="verb" onclick="copyToClipboard('Measure')">Measure</span>, 
+        <span class="verb" onclick="copyToClipboard('Ping')">Ping</span>, 
+        <span class="verb" onclick="copyToClipboard('Repair')">Repair</span>, 
+        <span class="verb" onclick="copyToClipboard('Resolve')">Resolve</span>, 
+        <span class="verb" onclick="copyToClipboard('Test')">Test</span>, 
+        <span class="verb" onclick="copyToClipboard('Trace')">Trace</span>, 
+        <span class="verb" onclick="copyToClipboard('Connect')">Connect</span>, 
+        <span class="verb" onclick="copyToClipboard('Disconnect')">Disconnect</span>, 
+        <span class="verb" onclick="copyToClipboard('Read')">Read</span>, 
+        <span class="verb" onclick="copyToClipboard('Receive')">Receive</span>, 
+        <span class="verb" onclick="copyToClipboard('Send')">Send</span>, 
+        <span class="verb" onclick="copyToClipboard('Write')">Write</span>, 
+        <span class="verb" onclick="copyToClipboard('Block')">Block</span>, 
+        <span class="verb" onclick="copyToClipboard('Grant')">Grant</span>, 
+        <span class="verb" onclick="copyToClipboard('Invoke')">Invoke</span>, 
+        <span class="verb" onclick="copyToClipboard('Revoke')">Revoke</span>, 
+        <span class="verb" onclick="copyToClipboard('Submit')">Submit</span>, 
+        <span class="verb" onclick="copyToClipboard('Approve')">Approve</span>, 
+        <span class="verb" onclick="copyToClipboard('Deny')">Deny</span>, 
+        <span class="verb" onclick="copyToClipboard('Get')">Get</span>, 
+        <span class="verb" onclick="copyToClipboard('Read')">Read</span>, 
+        <span class="verb" onclick="copyToClipboard('Receive')">Receive</span>, 
+        <span class="verb" onclick="copyToClipboard('Send')">Send</span>, 
+        <span class="verb" onclick="copyToClipboard('Write')">Write</span>, 
+        <span class="verb" onclick="copyToClipboard('Backup')">Backup</span>, 
+        <span class="verb" onclick="copyToClipboard('Checkpoint')">Checkpoint</span>, 
+        <span class="verb" onclick="copyToClipboard('Compare')">Compare</span>, 
+        <span class="verb" onclick="copyToClipboard('Compress')">Compress</span>, 
+        <span class="verb" onclick="copyToClipboard('Convert')">Convert</span>, 
+        <span class="verb" onclick="copyToClipboard('ConvertFrom')">ConvertFrom</span>, 
+        <span class="verb" onclick="copyToClipboard('ConvertTo')">ConvertTo</span>, 
+        <span class="verb" onclick="copyToClipboard('Dismount')">Dismount</span>, 
+        <span class="verb" onclick="copyToClipboard('Edit')">Edit</span>, 
+        <span class="verb" onclick="copyToClipboard('Expand')">Expand</span>, 
+        <span class="verb" onclick="copyToClipboard('Export')">Export</span>, 
+        <span class="verb" onclick="copyToClipboard('Group')">Group</span>, 
+        <span class="verb" onclick="copyToClipboard('Import')">Import</span>, 
+        <span class="verb" onclick="copyToClipboard('Initialize')">Initialize</span>, 
+        <span class="verb" onclick="copyToClipboard('Limit')">Limit</span>, 
+        <span class="verb" onclick="copyToClipboard('Merge')">Merge</span>, 
+        <span class="verb" onclick="copyToClipboard('Mount')">Mount</span>, 
+        <span class="verb" onclick="copyToClipboard('Out')">Out</span>, 
+        <span class="verb" onclick="copyToClipboard('Publish')">Publish</span>, 
+        <span class="verb" onclick="copyToClipboard('Restore')">Restore</span>, 
+        <span class="verb" onclick="copyToClipboard('Save')">Save</span>, 
+        <span class="verb" onclick="copyToClipboard('Sync')">Sync</span>, 
+        <span class="verb" onclick="copyToClipboard('Uninstall')">Uninstall</span>, 
+        <span class="verb" onclick="copyToClipboard('Unregister')">Unregister</span>, 
+        <span class="verb" onclick="copyToClipboard('Wait')">Wait</span>, 
+        <span class="verb" onclick="copyToClipboard('Debug')">Debug</span>, 
+        <span class="verb" onclick="copyToClipboard('Measure')">Measure</span>, 
+        <span class="verb" onclick="copyToClipboard('Ping')">Ping</span>, 
+        <span class="verb" onclick="copyToClipboard('Repair')">Repair</span>, 
+        <span class="verb" onclick="copyToClipboard('Resolve')">Resolve</span>, 
+        <span class="verb" onclick="copyToClipboard('Test')">Test</span>, 
+        <span class="verb" onclick="copyToClipboard('Trace')">Trace</span>, 
+        <span class="verb" onclick="copyToClipboard('Connect')">Connect</span>, 
+        <span class="verb" onclick="copyToClipboard('Disconnect')">Disconnect</span>, 
+        <span class="verb" onclick="copyToClipboard('Read')">Read</span>, 
+        <span class="verb" onclick="copyToClipboard('Receive')">Receive</span>, 
+        <span class="verb" onclick="copyToClipboard('Send')">Send</span>, 
+        <span class="verb" onclick="copyToClipboard('Write')">Write</span>, 
+        <span class="verb" onclick="copyToClipboard('Block')">Block</span>, 
+        <span class="verb" onclick="copyToClipboard('Grant')">Grant</span>, 
+        <span class="verb" onclick="copyToClipboard('Invoke')">Invoke</span>, 
+        <span class="verb" onclick="copyToClipboard('Revoke')">Revoke</span>, 
+        <span class="verb" onclick="copyToClipboard('Submit')">Submit</span>, 
+        <span class="verb" onclick="copyToClipboard('Approve')">Approve</span>, 
+        <span class="verb" onclick="copyToClipboard('Deny')">Deny</span>
+    </p>
+        <span class="verb" onclick="copyToClipboard('if')">if</span>, 
+        <span class="verb" onclick="copyToClipboard('then')">then</span>, 
+        <span class="verb" onclick="copyToClipboard('else')">else</span>, 
+        <span class="verb" onclick="copyToClipboard('endif')">endif</span>, 
+        <span class="verb" onclick="copyToClipboard('for')">for</span>,
+        <span class="verb" onclick="copyToClipboard('to')">to</span>,
+        <span class="verb" onclick="copyToClipboard('next')">next</span>,
+        <span class="verb" onclick="copyToClipboard('while')">while</span>,
+        <span class="verb" onclick="copyToClipboard('endwhileh')">endwhile</span>,
+    </p>
+</body>
+</html>
