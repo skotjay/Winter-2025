@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Notes Template</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid white;
+            padding: 8px;
+            text-align: left;
+        }
+        .copyable {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="startButton">Start</button>
+    <p id="stopwatch">Stopwatch: 00:00:00</p>
+    <p id="timer">Timer: 00:00:00</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>Word</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Generate 50 rows -->
+            <script>
+                for (let i = 0; i < 50; i++) {
+                    document.write('<tr><td contenteditable="true"></td><td class="copyable" contenteditable="true">Word ' + (i + 1) + '</td></tr>');
+                }
+            </script>
+        </tbody>
+    </table>
+
+    <script>
+        let stopwatchInterval, timerInterval;
+        let stopwatchTime = 0;
+
+        document.getElementById('startButton').addEventListener('click', function() {
+            clearInterval(stopwatchInterval);
+            clearInterval(timerInterval);
+            stopwatchTime = 0;
+            startStopwatch();
+            startTimer();
+        });
+
+        function startStopwatch() {
+            stopwatchInterval = setInterval(function() {
+                stopwatchTime++;
+                document.getElementById('stopwatch').textContent = 'Stopwatch: ' + formatTime(stopwatchTime);
+            }, 1000);
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(function() {
+                let nextTimestamp = getNextTimestamp();
+                if (nextTimestamp) {
+                    let currentTime = stopwatchTime;
+                    let timeDifference = nextTimestamp - currentTime;
+                    document.getElementById('timer').textContent = 'Timer: ' + formatTime(timeDifference);
+                }
+            }, 1000);
+        }
+
+        function getNextTimestamp() {
+            let rows = document.querySelectorAll('tbody tr');
+            for (let row of rows) {
+                let timestamp = row.cells[0].textContent;
+                if (timestamp) {
+                    let timeParts = timestamp.split(':');
+                    let totalSeconds = parseInt(timeParts[0]) * 3600 + parseInt(timeParts[1]) * 60 + parseInt(timeParts[2]);
+                    if (totalSeconds > stopwatchTime) {
+                        return totalSeconds;
+                    }
+                }
+            }
+            return null;
+        }
+
+        function formatTime(seconds) {
+            let hrs = Math.floor(seconds / 3600);
+            let mins = Math.floor((seconds % 3600) / 60);
+            let secs = seconds % 60;
+            return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        document.querySelectorAll('.copyable').forEach(function(element) {
+            element.addEventListener('click', function() {
+                let text = this.textContent;
+                navigator.clipboard.writeText(text).then(function() {
+                    alert('Copied to clipboard: ' + text);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

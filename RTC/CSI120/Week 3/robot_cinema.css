@@ -1,0 +1,40 @@
+nav {
+    background-color: #06170f;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    float: left;
+}
+nav ul li a {
+    display: block;
+    color: rgb(124, 237, 129);
+    text-align: justify;
+    padding: 14px 16px;
+    text-decoration-line: none;
+}
+nav ul li a:hover {
+    background-color: #000000;
+}
+body {
+    height: 100vh;
+    color: white;
+    font: 1.3rem Inconsolata, monospace;
+    text-shadow: 0 0 5px #da98d9;
+}
+h2 {
+    
+    text-align: center;
+}
+p {
+    color: white;
+}
+table {
+    background-color: rgb(53, 65, 56);
+    border-collapse: collapse;
+}

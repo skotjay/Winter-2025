@@ -1,0 +1,45 @@
+.page {
+    background-color: orange;
+    width: 100%;
+    font-size: 25px;
+    padding: 5px;
+    color: White;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.block {
+    border: 2px solid black;
+    padding: 10px;
+    margin: 10px;
+    background-color: beige;
+}
+
+.h1 {
+    font-size: 22px;
+    color: rgb(255, 0, 0);
+}
+
+.h2 {
+    font-size: 16px;
+    color: gray;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.body {
+    font-size: 12px;
+
+}
+
+.big_div {
+    background-color: rgb(235, 231, 224);
+    padding: 5px;
+}
+
+.div {
+    display: inline-table;
+    width: 25%;
+}

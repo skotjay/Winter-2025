@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python CopyPasta</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: monospace;
+        }
+        .verb {
+            cursor: pointer;
+            color: cyan;
+        }
+    </style>
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert('Copied to clipboard: ' + text);
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    </script>
+</head>
+<body>
+    <p>
+        <h3>Python Built in Functions</h3>
+        <span class="verb" onclick="copyToClipboard('abs()')">abs()</span> Returns the absolute value of a number,
+        <span class="verb" onclick="copyToClipboard('all()')">all()</span> Returns True if all items in an iterable object are true, 
+        <span class="verb" onclick="copyToClipboard('any()')">any()</span> Returns True if any item in an iterable object is true,  
+        <span class="verb" onclick="copyToClipboard('ascii()')">ascii()</span> Returns a readable version of an object. Replaces none-ascii characters with escape character, 
+        <span class="verb" onclick="copyToClipboard('bin()')">bin()</span> Returns the binary version of a number, 
+        <span class="verb" onclick="copyToClipboard('bool()')">bool()</span> Returns the boolean value of the specified object, 
+        <span class="verb" onclick="copyToClipboard('bytearray()')">bytearray()</span> Returns an array of bytes, 
+        <span class="verb" onclick="copyToClipboard('bytes()')">bytes()</span> Returns a bytes object, 
+        <span class="verb" onclick="copyToClipboard('callable()')">callable()</span> Returns True if the specified object is callable, otherwise False, 
+        <span class="verb" onclick="copyToClipboard('chr()')">chr()</span> Returns a character from the specified Unicode code., 
+        <span class="verb" onclick="copyToClipboard('classmethod()')">classmethod()</span> Converts a method into a class method, 
+        <span class="verb" onclick="copyToClipboard('compile()')">compile()</span> Returns the specified source as an object, ready to be executed</span>, 
+        <span class="verb" onclick="copyToClipboard('complex()')">complex()</span> Returns a complex number, 
+        <span class="verb" onclick="copyToClipboard('delattr()')">delattr()</span> Deletes the specified attribute (property or method) from the specified object, 
+        <span class="verb" onclick="copyToClipboard('dict()')">dict()</span> Returns a dictionary (Array), 
+        <span class="verb" onclick="copyToClipboard('dir()')">dir()</span> Returns a list of the specified object's properties and methods, 
+        <span class="verb" onclick="copyToClipboard('divmod()')">divmod()</span> Returns the quotient and the remainder when argument1 is divided by argument,
+        <span class="verb" onclick="copyToClipboard('enumerate()')">enumerate()</span> Takes a collection (e.g. a tuple) and returns it as an enumerate object, 
+        <span class="verb" onclick="copyToClipboard('eval()')">eval()</span> Evaluates and executes an expression, 
+        <span class="verb" onclick="copyToClipboard('exec()')">exec()</span> Executes the specified code (or object), 
+        <span class="verb" onclick="copyToClipboard('filter()')">filter()</span> Use a filter function to exclude items in an iterable object, 
+        <span class="verb" onclick="copyToClipboard('float()')">float()</span> Returns a floating point number, 
+        <span class="verb" onclick="copyToClipboard('format()')">format()</span> Formats a specified value, 
+        <span class="verb" onclick="copyToClipboard('frozenset()')">frozenset()</span> Returns a frozenset object, 
+        <span class="verb" onclick="copyToClipboard('getattr()')">getattr()</span> Returns the value of the specified attribute (property or method), 
+        <span class="verb" onclick="copyToClipboard('globals()')">globals()</span> Returns the current global symbol table as a dictionary, 
+        <span class="verb" onclick="copyToClipboard('hasattr()')">hasattr()</span> Returns True if the specified object has the specified attribute (property/method), 
+        <span class="verb" onclick="copyToClipboard('hash()')">hash()</span> Returns the hash value of a specified object, 
+        <span class="verb" onclick="copyToClipboard('help()')">help()</span> Executes the built-in help system, 
+        <span class="verb" onclick="copyToClipboard('hex()')">hex()</span> Converts a number into a hexadecimal value, 
+        <span class="verb" onclick="copyToClipboard('id()')">id()</span> Returns the id of an object, 
+        <span class="verb" onclick="copyToClipboard('input()')">input()</span> Allowing user input, 
+        <span class="verb" onclick="copyToClipboard('int()')">int()</span> Returns an integer number, 
+        <span class="verb" onclick="copyToClipboard('isinstance()')">isinstance()</span> Returns True if a specified object is an instance of a specified object, 
+        <span class="verb" onclick="copyToClipboard('issubclass()')">issubclass()</span> Returns True if a specified class is a subclass of a specified object, 
+        <span class="verb" onclick="copyToClipboard('iter()')">iter()</span> Returns an iterator object, 
+        <span class="verb" onclick="copyToClipboard('len()')">len()</span> Returns the length of an object, 
+        <span class="verb" onclick="copyToClipboard('list()')">list()</span> Returns a list, 
+        <span class="verb" onclick="copyToClipboard('locals()')">locals()</span> Returns an updated dictionary of the current local symbol table, 
+        <span class="verb" onclick="copyToClipboard('map()')">map()</span> Returns the specified iterator with the specified function applied to each item, 
+        <span class="verb" onclick="copyToClipboard('max()')">max()</span> Returns the largest item in an iterable, 
+        <span class="verb" onclick="copyToClipboard('memoryview()')">memoryview()</span>Returns a memory view object, 
+        <span class="verb" onclick="copyToClipboard('min()')">min()</span> Returns the smallest item in an iterable, 
+        <span class="verb" onclick="copyToClipboard('next()')">next()</span> Returns the next item in an iterable, 
+        <span class="verb" onclick="copyToClipboard('object()')">object()</span> Returns a new object, 
+        <span class="verb" onclick="copyToClipboard('oct()')">oct()</span> Converts a number into an octal, 
+        <span class="verb" onclick="copyToClipboard('open()')">open()</span> Opens a file and returns a file object,
+        <span class="verb" onclick="copyToClipboard('ord()')">ord()</span> Convert an integer representing the Unicode of the specified character,
+        <span class="verb" onclick="copyToClipboard('pow()')">pow()</span> Returns the value of x to the power of y,
+        <span class="verb" onclick="copyToClipboard('print()')">print()</span> Prints to the standard output device,
+        <span class="verb" onclick="copyToClipboard('property()')">property()</span> Gets, sets, deletes a property,
+        <span class="verb" onclick="copyToClipboard('range()')">range()</span> Returns a sequence of numbers, starting from 0 and increments by 1 (by default),
+        <span class="verb" onclick="copyToClipboard('repr()')">repr()</span> Returns a readable version of an object,
+        <span class="verb" onclick="copyToClipboard('reversed()')">reversed()</span> Returns a reversed iterator,
+        <span class="verb" onclick="copyToClipboard('round()')">round()</span> Rounds a numbers,
+        <span class="verb" onclick="copyToClipboard('set()')">set()</span> Returns a new set object,
+        <span class="verb" onclick="copyToClipboard('setattr()')">setattr()</span> Sets an attribute (property/method) of an object,
+        <span class="verb" onclick="copyToClipboard('slice()')">slice()</span> Returns a slice object,
+        <span class="verb" onclick="copyToClipboard('sorted()')">sorted()</span> Returns a sorted list,
+        <span class="verb" onclick="copyToClipboard('staticmethod()')">staticmethod()</span> Converts a method into a static method,
+        <span class="verb" onclick="copyToClipboard('str()')">str()</span> Returns a string object,
+        <span class="verb" onclick="copyToClipboard('sum()')">sum()</span> Sums the items of an iterator,
+        <span class="verb" onclick="copyToClipboard('super()')">super()</span> Returns an object that represents the parent class,
+        <span class="verb" onclick="copyToClipboard('tuple()')">tuple()</span> Returns a tuple,
+        <span class="verb" onclick="copyToClipboard('type()')">type()</span> Returns the type of an object,
+        <span class="verb" onclick="copyToClipboard('vars()')">vars()</span> Returns the __dict__ property of an object,
+        <span class="verb" onclick="copyToClipboard('zip()')">zip()</span> 	Returns an iterator, from two or more iterators,
+    </p>
+       <h3>Python String Methods</h3>
+
+       <h4>Note: All string methods returns new values. They do not change the original string.</h4>
+
+        <span class="verb" onclick="copyToClipboard('capitalize()')">capitalize()</span> Converts the first character to upper case,
+        <span class="verb" onclick="copyToClipboard('casefold()')">casefold()</span> Converts string into lower case,
+        <span class="verb" onclick="copyToClipboard('center()')">center()</span> Returns a centered string,
+        <span class="verb" onclick="copyToClipboard('count()')">count()</span> Returns the number of times a specified value occurs in a string,
+        <span class="verb" onclick="copyToClipboard('encode()')">encode()</span> Returns an encoded version of the string,
+        <span class="verb" onclick="copyToClipboard('endswith()')">endswith()</span> Returns true if the string ends with the specified value,
+        <span class="verb" onclick="copyToClipboard('expandtabs()')">expandtabs()</span> Sets the tab size of the string,
+        <span class="verb" onclick="copyToClipboard('find()')">find()</span> or <span class="verb" onclick="copyToClipboard('index()')">index()</span> Searches the string for a specified value and returns the position of where it was found,
+        <span class="verb" onclick="copyToClipboard('format()')">format()</span> Formats specified values in a string,
+        <span class="verb" onclick="copyToClipboard('format_map()')">format_map()</span> Formats specified values in a string,
+        h<span class="verb" onclick="copyToClipboard('isalnum()')">isalnum()</span> Returns True if all characters in the string are alphanumeric,
+        <span class="verb" onclick="copyToClipboard('isalpha()')">isalpha()</span> 	Returns True if all characters in the string are in the alphabet,
+        <span class="verb" onclick="copyToClipboard('isascii()')">isascii()</span> Returns True if all characters in the string are ascii characters,
+        <span class="verb" onclick="copyToClipboard('isdecimal()')">isdecimal()</span> 	Returns True if all characters in the string are decimals,
+        <span class="verb" onclick="copyToClipboard('isdigit()')">isdigit()</span> Returns True if all characters in the string are digits,
+        <span class="verb" onclick="copyToClipboard('isidentifier()')">isidentifier()</span> Returns True if the string is an identifier,
+        <span class="verb" onclick="copyToClipboard('islower()')">islower()</span> Returns True if all characters in the string are lower case,
+        <span class="verb" onclick="copyToClipboard('isnumeric()')">isnumeric()</span> Returns True if all characters in the string are numeric,
+        <span class="verb" onclick="copyToClipboard('isprintable()')">isprintable()</span> Returns True if all characters in the string are printable,
+        <span class="verb" onclick="copyToClipboard('isspace()')">isspace()</span> 	Returns True if all characters in the string are whitespaces,
+        <span class="verb" onclick="copyToClipboard('istitle()')">istitle()</span> Returns True if the string follows the rules of a title,
+        <span class="verb" onclick="copyToClipboard('isupper()')">isupper()</span> Returns True if all characters in the string are upper case,
+        <span class="verb" onclick="copyToClipboard('join()')">join()</span> Converts the elements of an iterable into a string,
+        <span class="verb" onclick="copyToClipboard('ljust()')">ljust()</span> Returns a left justified version of the string,
+        <span class="verb" onclick="copyToClipboard('lower()')">lower()</span> Converts a string into lower case,
+        <span class="verb" onclick="copyToClipboard('lstrip()')">lstrip()</span> Returns a left trim version of the string,
+        <span class="verb" onclick="copyToClipboard('maketrans()')">maketrans()</span> Returns a translation table to be used in translations,
+        <span class="verb" onclick="copyToClipboard('partition()')">partition()</span> Returns a tuple where the string is parted into three parts,
+        <span class="verb" onclick="copyToClipboard('replace()')">replace()</span> Returns a string where a specified value is replaced with a specified value,
+        <span class="verb" onclick="copyToClipboard('rfind()')">rfind()</span> and 
+        <span class="verb" onclick="copyToClipboard('rindex()')">rindex()</span> Searches the string for a specified value and returns the last position of where it was found, 
+        <span class="verb" onclick="copyToClipboard('rjust()')">rjust()</span> Returns a right justified version of the string,
+        <span class="verb" onclick="copyToClipboard('rpartition()')">rpartition()</span> Returns a tuple where the string is parted into three parts,
+        <span class="verb" onclick="copyToClipboard('rsplit()')">rsplit()</span> Splits the string at the specified separator, and returns a list,
+        <span class="verb" onclick="copyToClipboard('rstrip()')">rstrip()</span> Returns a right trim version of the string,
+        <span class="verb" onclick="copyToClipboard('split()')">split()</span> Splits the string at the specified separator, and returns a list,
+        <span class="verb" onclick="copyToClipboard('splitlines()')">splitlines()</span> Splits the string at line breaks and returns a list,
+        <span class="verb" onclick="copyToClipboard('startswith()')">startswith()</span> 	Returns true if the string starts with the specified value,
+        <span class="verb" onclick="copyToClipboard('strip()')">strip()</span> Returns a trimmed version of the string
+        ,
+        <span class="verb" onclick="copyToClipboard('swapcase()')">swapcase()</span> Swaps cases, lower case becomes upper case and vice versa,
+        <span class="verb" onclick="copyToClipboard('title()')">title()</span> Converts the first character of each word to upper case,
+        <span class="verb" onclick="copyToClipboard('translate()')">translate()</span> Returns a translated string,
+        <span class="verb" onclick="copyToClipboard('upper()')">upper()</span> Converts a string into upper case,
+        <span class="verb" onclick="copyToClipboard('zfill()')">zfill()</span> 	Fills the string with a specified number of 0 values at the beginning,
+
+        <h3>List/Array Methods</h3>
+        <h4>Note: Python does not have built-in support for Arrays, but Python Lists can be used instead.</h4>
+        <span class="verb" onclick="copyToClipboard('append()')">append()</span> Adds an element at the end of the list,
+        <span class="verb" onclick="copyToClipboard('clear()')">clear()</span> Removes all the elements from the list,
+        <span class="verb" onclick="copyToClipboard('copy()')">copy()</span> Returns a copy of the list,
+        <span class="verb" onclick="copyToClipboard('count()')">count()</span> Returns the number of elements with the specified value,
+        <span class="verb" onclick="copyToClipboard('extend()')">extend()</span> Add the elements of a list (or any iterable), to the end of the current list,
+        <span class="verb" onclick="copyToClipboard('index()')">index()</span> Returns the index of the first element with the specified value,
+        <span class="verb" onclick="copyToClipboard('insert()')">insert()</span> Adds an element at the specified position,
+        <span class="verb" onclick="copyToClipboard('pop()')">pop()</span> Removes the element at the specified position,
+        <span class="verb" onclick="copyToClipboard('remove()')">remove()</span> Removes the first item with the specified value,
+        <span class="verb" onclick="copyToClipboard('reverse()')">reverse()</span> Reverses the order of the list,
+        <span class="verb" onclick="copyToClipboard('sort()')">sort()</span> Sorts the list,
+
+        <h3>Dictionary Methods</h3>
+        <h4>Learn more about Dictionaries <a href="https://www.w3schools.com/python/python_dictionaries.asp">here</a></h4>
+
+        <span class="verb" onclick="copyToClipboard('clear()')">clear()</span> Removes all the elements from the dictionary,
+        <span class="verb" onclick="copyToClipboard('copy()')">copy()</span> Returns a copy of the dictionary,
+        <span class="verb" onclick="copyToClipboard('fromkeys()')">fromkeys()</span> Returns a dictionary with the specified keys and value,
+        <span class="verb" onclick="copyToClipboard('get()')">get()</span> Returns the value of the specified key,
+        <span class="verb" onclick="copyToClipboard('items()')">items()</span> Returns a list containing a tuple for each key value pair,
+        <span class="verb" onclick="copyToClipboard('keys()')">keys()</span> Returns a list containing the dictionary's keys,
+        <span class="verb" onclick="copyToClipboard('pop()')">pop()</span> Removes the element with the specified key,
+        <span class="verb" onclick="copyToClipboard('popitem()')">popitem()</span> 	Removes the last inserted key-value pair,
+        <span class="verb" onclick="copyToClipboard('setdefault()')">setdefault()</span> Returns the value of the specified key. If the key does not exist: insert the key, with the specified value,
+        <span class="verb" onclick="copyToClipboard('update()')">update()</span> Updates the dictionary with the specified key-value pairs,
+        <span class="verb" onclick="copyToClipboard('values()')">values()</span> Returns a list of all the values in the dictionary,
+        
+        <h3>Tuple Methods</h3>
+        <h4>Python has two built-in methods that you can use on tuples. Web Page <a href="https://www.w3schools.com/python/python_ref_tuple.asp">here</a></h4>
+
+        <span class="verb" onclick="copyToClipboard('count()')">count()</span> Returns the number of times a specified value occurs in a tuple,
+        <span class="verb" onclick="copyToClipboard('index()')">index()</span> Searches the tuple for a specified value and returns the position of where it was found,
+
+        <h3>Set Methods</h3>
+        <h4>Python has a set of built-in methods that you can use on sets. Web Page <a href="https://www.w3schools.com/python/python_ref_set.asp">here</a></h4>
+
+        <span class="verb" onclick="copyToClipboard('add()')">add()</span> Adds an element to the set,
+        <span class="verb" onclick="copyToClipboard('clear()')">clear()</span> XXXXX,
+        <span class="verb" onclick="copyToClipboard('XXXXX')">XXXXX</span> XXXXX,
+        <span class="verb" onclick="copyToClipboard('XXXXX')">XXXXX</span> XXXXX,
+        <span class="verb" onclick="copyToClipboard('XXXXX')">XXXXX</span> XXXXX,
+        <span class="verb" onclick="copyToClipboard('XXXXX')">XXXXX</span> XXXXX,
+        <span class="verb" onclick="copyToClipboard('XXXXX')">XXXXX</span> XXXXX,
+        <span class="verb" onclick="copyToClipboard('XXXXX')">XXXXX</span> XXXXX,
+        <span class="verb" onclick="copyToClipboard('XXXXX')">XXXXX</span> XXXXX,
+        <span class="verb" onclick="copyToClipboard('XXXXX')">XXXXX</span> XXXXX,
+        </p>
+</body>
+</html>
