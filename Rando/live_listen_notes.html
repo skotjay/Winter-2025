@@ -1,0 +1,119 @@
+<!--Timer at the top of the page, with a buttons to play/pause and reset the timer-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        #timer {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        button {
+            font-size: 1em;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="timer">00:00:00</div>
+    <button id="startPauseBtn">Start</button>
+    <button id="resetBtn">Reset</button>
+
+    <script>
+        let timer;
+        let isRunning = false;
+        let startTime;
+        let elapsedTime = 0;
+
+        const timerElement = document.getElementById('timer');
+        const startPauseBtn = document.getElementById('startPauseBtn');
+        const resetBtn = document.getElementById('resetBtn');
+
+        function updateTimer() {
+            const now = Date.now();
+            const diff = now - startTime + elapsedTime;
+            const hours = Math.floor(diff / 3600000);
+            const minutes = Math.floor((diff % 3600000) / 60000);
+            const seconds = Math.floor((diff % 60000) / 1000);
+            timerElement.textContent = 
+                `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        startPauseBtn.addEventListener('click', () => {
+            if (isRunning) {
+                clearInterval(timer);
+                elapsedTime += Date.now() - startTime;
+                startPauseBtn.textContent = 'Start';
+            } else {
+                startTime = Date.now();
+                timer = setInterval(updateTimer, 1000);
+                startPauseBtn.textContent = 'Pause';
+            }
+            isRunning = !isRunning;
+        });
+
+        resetBtn.addEventListener('click', () => {
+            clearInterval(timer);
+            isRunning = false;
+            elapsedTime = 0;
+            timerElement.textContent = '00:00:00';
+            startPauseBtn.textContent = 'Start';
+        });
+    </script>
+
+    <table id="commentsTable" style="width: 100%; margin-top: 20px;">
+        <thead>
+            <tr>
+                <th style="width: 10%;">Timestamp</th>
+                <th style="width: 90%;">Comment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be added dynamically -->
+        </tbody>
+    </table>
+
+    <script>
+        const commentsTable = document.getElementById('commentsTable').getElementsByTagName('tbody')[0];
+
+        function addComment(timestamp, comment) {
+            const row = commentsTable.insertRow();
+            const cell1 = row.insertCell(0);
+            const cell2 = row.insertCell(1);
+            cell1.textContent = timestamp;
+            cell2.textContent = comment;
+        }
+
+        function checkComments() {
+            const now = Date.now();
+            const diff = now - startTime + elapsedTime;
+            const hours = Math.floor(diff / 3600000);
+            const minutes = Math.floor((diff % 3600000) / 60000);
+            const seconds = Math.floor((diff % 60000) / 1000);
+            const currentTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+            for (let row of commentsTable.rows) {
+                const timestamp = row.cells[0].textContent;
+                const comment = row.cells[1].textContent;
+                const [tHours, tMinutes, tSeconds] = timestamp.split(':').map(Number);
+                const timestampInMs = (tHours * 3600 + tMinutes * 60 + tSeconds) * 1000;
+
+                if (timestampInMs - diff <= 30000 && timestampInMs - diff > 20000) {
+                    navigator.clipboard.writeText(comment).then(() => {
+                        row.cells[1].style.color = 'red';
+                    });
+                }
+            }
+        }
+
+        setInterval(checkComments, 1000);
+
+        // Example usage
+        addComment('00:01:00', 'This is a comment for 1 minute mark.');
+        addComment('00:02:00', 'This is a comment for 2 minutes mark.');
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Student Registration Form</title>
+    <style>
+    form {
+        width: 400px;
+        padding: 20px;
+        border: 1px solid black;
+        background-color: rgb(233, 234, 235);
+        
+}
+    input, select, textares {
+        width: 95%;
+        margin-top: 5px;
+        padding: 8px;
+        border: 1px solid black;
+}
+    button {
+        margin-top: 10px;
+        padding: 10px;
+        background: blue;
+        color: white;
+    }
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    <h1> Student Registration Form</h1>
+    <form>
+
+        <div>
+        <label for="fname">Full Name:</label>
+        <input type="text" is="fname" name="fname" placeholder=" " required>
+        </div>
+
+        <br>
+
+        <div>
+        <label for="email">Email:</label>
+        <input type="text" is="email" name="email" placeholder=" " required>   
+        </div>
+
+        <br>
+        
+        <div>
+        <label for="bday">Date of Birth:</label>
+        <input type="date" is="bday" name="bday" required>
+        </div>
+        
+        <br>
+
+        <h3>Gender:</h3>
+        <div style="display: flex; align-items: center;"> 
+        <p>
+        <input type="checkbox" id="male" name="gender">
+        <label for="male">Male</label>
+        </p>
+        <p style="margin-right: 10px;">
+        <input type="checkbox" id="female" name="gender">
+        <label for="female">Female</label>
+        </p>
+        <p>
+        <input type="checkbox" id="other" name="gender">
+        <label for="other">Other</label>
+        </p>
+        </div>
+
+        <style>
+        select {
+            background-color: rgb(188, 187, 187);
+        }
+        </style>
+        <label for="select_course">Select Cousre:</label>
+        <select id="select_course" name="course" required>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Math">Math</option>
+            <option value="Baking">Baking</option>
+        </select>
+        </div>
+
+        <br>
+        <br>
+
+        <div>
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="7" cols="50" placeholder="Enter your address..."></textarea>
+        </div>
+
+        <br>
+
+        <h3>Hobbies:</h3>
+
+        <div style="display: flex; align-items: center;"> 
+        <p>
+        <input type="checkbox" id="reading" name="hobbies">
+        <label for="reading">Reading</label>
+        </p>
+        <p style="margin-right: 10px;">
+        <input type="checkbox" id="sports" name="hobbies">
+        <label for="sports">Sports</label>
+        </p>
+        <p>
+        <input type="checkbox" id="music" name="hobbies">
+        <label for="music">Music</label>
+        </p>
+        </div>
+
+        <div style="text-align: center;">
+            <button style="width: 95%;" value="Register">Register</button>
+        </div>
+
+    </form>
+</body>
+</html>

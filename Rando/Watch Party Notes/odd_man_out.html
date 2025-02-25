@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Party Notes</title>
+    <style>
+        #stopwatch {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .time-column {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div id="stopwatch">00:00:00</div>
+        <button onclick="startStopwatch()">Start</button>
+        <button onclick="stopStopwatch()">Stop</button>
+    </section>
+    <section>
+        <table>
+            <thead>
+                <tr>
+                    <th class="time-column">Time</th>
+                    <th>Comment</th>
+                </tr>
+            </thead>
+            <tbody id="commentsTable">
+                <!-- Rows will be added here dynamically -->
+            </tbody>
+        </table>
+        <input type="text" id="timeInput" placeholder="hh:mm:ss">
+        <input type="text" id="commentInput" placeholder="Enter comment">
+        <button onclick="addComment()">Add Comment</button>
+    </section>
+
+    <script>
+        let stopwatchInterval;
+        let elapsedTime = 0;
+
+        function startStopwatch() {
+            const startTime = Date.now() - elapsedTime;
+            stopwatchInterval = setInterval(() => {
+                elapsedTime = Date.now() - startTime;
+                document.getElementById('stopwatch').textContent = formatTime(elapsedTime);
+                checkComments();
+            }, 1000);
+        }
+
+        function stopStopwatch() {
+            clearInterval(stopwatchInterval);
+        }
+
+        function formatTime(ms) {
+            const totalSeconds = Math.floor(ms / 1000);
+            const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+            const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+            const seconds = String(totalSeconds % 60).padStart(2, '0');
+            return `${hours}:${minutes}:${seconds}`;
+        }
+
+        function addComment() {
+            const time = document.getElementById('timeInput').value;
+            const comment = document.getElementById('commentInput').value;
+            const table = document.getElementById('commentsTable');
+            const row = table.insertRow();
+            const timeCell = row.insertCell(0);
+            const commentCell = row.insertCell(1);
+            timeCell.textContent = time;
+            commentCell.textContent = comment;
+        }
+
+        function checkComments() {
+            const table = document.getElementById('commentsTable');
+            const rows = table.rows;
+            const currentTime = elapsedTime / 1000;
+            for (let i = 0; i < rows.length; i++) {
+                const timeCell = rows[i].cells[0].textContent;
+                const commentCell = rows[i].cells[1].textContent;
+                const [hours, minutes, seconds] = timeCell.split(':').map(Number);
+                const commentTime = hours * 3600 + minutes * 60 + seconds;
+                if (commentTime - currentTime <= 10 && commentTime - currentTime > 0) {
+                    navigator.clipboard.writeText(commentCell).then(() => {
+                        console.log('Comment copied to clipboard:', commentCell);
+                    }).catch(err => {
+                        console.error('Could not copy text: ', err);
+                    });
+                }
+            }
+        }
+    </script>
+</body>
+</html></html>

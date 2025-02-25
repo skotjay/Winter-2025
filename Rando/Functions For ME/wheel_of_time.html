@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheel of Time Notification</title>
+</head>
+<body>
+    <h1>Wheel of Time Notification</h1>
+    <label for="notification-time">Select Notification Time:</label>
+    <input type="time" id="notification-time" name="notification-time">
+    <button onclick="scheduleNotification()">Set Notification</button>
+
+    <script>
+        function scheduleNotification() {
+            const timeInput = document.getElementById('notification-time').value;
+            if (!timeInput) {
+                alert('Please select a time for the notification.');
+                return;
+            }
+
+            const [hours, minutes] = timeInput.split(':').map(Number);
+            const now = new Date();
+            const notificationTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes, 0, 0);
+
+            if (notificationTime < now) {
+                notificationTime.setDate(notificationTime.getDate() + 1);
+            }
+
+            const timeUntilNotification = notificationTime - now;
+
+            setTimeout(() => {
+                showNotification();
+                setInterval(showNotification, 24 * 60 * 60 * 1000); // Repeat every 24 hours
+            }, timeUntilNotification);
+        }
+
+        function showNotification() {
+            const notificationText = "Your Wheel of Time message here"; // Replace with the actual output from wheel_of_time.py
+            if (Notification.permission === 'granted') {
+                new Notification(notificationText);
+            } else if (Notification.permission !== 'denied') {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        new Notification(notificationText);
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>
